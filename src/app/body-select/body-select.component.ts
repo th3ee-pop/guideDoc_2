@@ -68,7 +68,7 @@ export class BodySelectComponent implements OnInit {
 
   sex = 0 ;
   side = 0 ;
-  part= '头部';
+  part= '无';
   title = 'app';
   Symptomes: any;
 
@@ -77,23 +77,10 @@ export class BodySelectComponent implements OnInit {
   }
   ngOnInit() {
     sessionStorage.setItem('Gender','m');
-    // this.getParts("bp42");
   }
 
   filterOption(inputValue, option) {
     return option.description.indexOf(inputValue) > -1;
-  }
-
-  search(ret: any) {
-    console.log('nzSearchChange', ret);
-  }
-
-  select(ret: any) {
-    console.log('nzSelectChange', ret);
-  }
-
-  change(ret: any) {
-    console.log('nzChange', ret);
   }
 
   changeSex(num) {
@@ -107,7 +94,8 @@ export class BodySelectComponent implements OnInit {
   }
   getParts(event: any) {
     let gender = sessionStorage.getItem('Gender');
-    // this.part = this.dic[gender][event];
+    this.part = this.dic[gender][event];
+    console.log(this.part);
     sessionStorage.setItem('part', event);
     const params = {
       'Name': '',
