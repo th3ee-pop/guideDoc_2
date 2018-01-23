@@ -94,6 +94,7 @@ export class BodySelectComponent implements OnInit {
     this.side = num;
   }
   getParts(event: any) {
+    this.parts = ['其他'];
     console.log(event);
     let gender = sessionStorage.getItem('Gender');
     if(typeof(event) !== 'string'){
@@ -105,13 +106,15 @@ export class BodySelectComponent implements OnInit {
         }
       });
       console.log(this.parts);
+      this.showSymptoms(event[0],gender);
     }else {
       this.part = this.dic[gender][event];
       if( this.parts.indexOf(this.part) == -1) {
         this.parts.push(this.part);
       }
+      this.showSymptoms(event,gender);
     }
-    this.showSymptoms(event,gender);
+
   }
 
   selectSymptom(symptom: any) {
