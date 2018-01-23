@@ -111,6 +111,7 @@ export class BodySelectComponent implements OnInit {
         this.parts.push(this.part);
       }
     }
+    this.showSymptoms(event,gender);
   }
 
   selectSymptom(symptom: any) {
