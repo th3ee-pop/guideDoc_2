@@ -71,6 +71,7 @@ export class BodySelectComponent implements OnInit {
   part= '无';
   title = 'app';
   Symptomes: any;
+  parts = ['其他'];
 
   data ;
   constructor(public httpService: HttpService, private router: Router) {
@@ -93,20 +94,23 @@ export class BodySelectComponent implements OnInit {
     this.side = num;
   }
   getParts(event: any) {
+    console.log(event);
     let gender = sessionStorage.getItem('Gender');
-    this.part = this.dic[gender][event];
-    console.log(this.part);
-    sessionStorage.setItem('part', event);
-    const params = {
-      'Name': '',
-      'Body': event,
-      'Gender': gender
-    };
-    console.log(params);
-    this.httpService.getSymptomsByBodyParts(params).subscribe((res) => {
-      this.Symptomes = res.Results;
-      console.log(this.Symptomes);
-    });
+    if(typeof(event) !== 'string'){
+      console.log(event);
+      event.forEach((v)=>{
+        this.part = this.dic[gender][v];
+        if( this.parts.indexOf(this.part) == -1) {
+          this.parts.push(this.dic[gender][v]);
+        }
+      });
+      console.log(this.parts);
+    }else {
+      this.part = this.dic[gender][event];
+      if( this.parts.indexOf(this.part) == -1) {
+        this.parts.push(this.part);
+      }
+    }
   }
 
   selectSymptom(symptom: any) {
@@ -123,6 +127,50 @@ export class BodySelectComponent implements OnInit {
     }else {
       return 'c';
     }
+  }
+
+  /**
+   * 输入部位中文名和性别，获取相应的body编号
+   * @param part 如“胸部”
+   * @param sex 如m/w/c
+   * @returns {string} 如：bp24
+   */
+  getBodyParts = (part: string, sex: string) => {
+    console.log(part, sex);
+    let body = this.dic[sex];
+    for (let key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (part == body[key]) {
+          console.log(key);
+          this.getParts(key);
+          this.showSymptoms(key,sex);
+        }
+      }
+    }
+  };
+
+  /**
+   * 显示下方具体症状
+   * @param bp 部位编号，如bp34
+   * @param gender 性别，如m/w/c
+   */
+    showSymptoms = (bp: string, gender: string) => {
+      // console.log(bp,gender);
+      sessionStorage.setItem('part', bp);
+      const params = {
+        'Name': '',
+        'Body': bp,
+        'Gender': gender
+      };
+      // console.log(params);
+      this.httpService.getSymptomsByBodyParts(params).subscribe((res) => {
+        this.Symptomes = res.Results;
+        console.log(this.Symptomes);
+      });
+    };
+
+  clear(){
+    this.parts = ['其他'];
   }
 
 }

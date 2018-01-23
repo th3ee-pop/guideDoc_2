@@ -76,11 +76,24 @@
             <div nz-col [nzSpan]="8"></div>
             <div nz-col [nzSpan]="8">
               <h2>
-                已选部位：{{part}}
+                选择部位
               </h2>
+              <div nz-row [nzType]="'flex'">
+
+                <div class="height-300">
+                  <!--<nz-checkable-tag  style="margin-bottom: 1%" *ngFor="let part of parts"  (nzChange)="getBodyParts(part,'m')">-->
+                    <!--{{part}}-->
+                  <!--</nz-checkable-tag>-->
+
+                  <nz-tag  style="margin-bottom: 1%" [nzColor]="'cyan'" *ngFor="let part of parts" (click)="getBodyParts(part,getGender(sex))">
+                   {{part}}
+                  </nz-tag>
+                  <i class="anticon anticon-close" (click)="clear()" *ngIf="parts.length >1"></i>
+                </div>
+              </div>
               <br>
               <h2 *ngIf="Symptomes">
-                相关症状
+                {{part}} 相关症状
               </h2>
               <br>
               <div nz-row [nzType]="'flex'">
