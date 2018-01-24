@@ -6,6 +6,6 @@ export class parts{
   frt_female = [['bp71','bp65'],'bp57','bp57','bp56','bp56','bp51','bp49','bp70','bp48','bp54','bp60','bp61','bp62','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp50','bp50','bp50','bp50','bp50','bp50','bp50','bp50','bp50','bp50'];
   bck_male = ['bp46','bp45','bp35','bp35','bp31','bp44','bp44','bp44','bp44','bp44','bp44','bp44','bp44','bp44','bp44','bp44','bp44','bp26','bp26','bp26','bp26','bp26','bp26','bp26','bp26','bp26','bp26','bp26','bp26'];
   bck_female = ['bp71','bp70','bp59','bp59','bp55','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp69','bp50','bp50','bp50','bp50','bp50','bp50','bp50','bp50','bp50','bp50','bp50','bp50'];
-  frt_child = [['bp17','bp22'],'bp10','bp10','bp9','bp9','bp4','bp2','bp21','bp1','bp13','bp11','bp14','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15'];
+  frt_child = [['bp17','bp22'],'bp10','bp10','bp9','bp9','bp4','bp2','bp21','bp1','bp13','','bp14','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15'];
   bck_child = ['bp22','bp21','bp12','bp12','bp8','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp20','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15','bp15'];
 }

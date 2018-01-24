@@ -39,19 +39,21 @@ export class MaleComponent implements OnInit {
       ele['style']['stroke-width'] = 2;
       ele.addEventListener('click',()=> {
       const id = ele["id"];
-      if( this.side == 0){
-        let part = this.frt[id.split("_")[1]-1];
-        // console.log(part);
-        // this.parts.push(part);
-        this.selectedParts.emit(part);
-      }else {
-        let part = this.bck[id.split("_")[1]-1];
-        // console.log(part);
-        // this.parts.push(part);
-        this.selectedParts.emit(part);
-      }
+      if( id !== 'frt_80') {
+        if (this.side == 0) {
+          let part = this.frt[id.split("_")[1] - 1];
+          // console.log(part);
+          // this.parts.push(part);
+          this.selectedParts.emit(part);
+        } else {
+          let part = this.bck[id.split("_")[1] - 1];
+          // console.log(part);
+          // this.parts.push(part);
+          this.selectedParts.emit(part);
+        }
         // this.selectedParts.emit(this.dedupe(this.parts));
         // console.log(id);
+      }
       });
 
       ele.addEventListener('mouseenter',()=> {
