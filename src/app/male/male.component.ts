@@ -32,11 +32,14 @@ export class MaleComponent implements OnInit {
   addClick(){
     let els = this.elementRef.nativeElement.querySelectorAll('path');
     els.forEach((ele)=>{
-      ele['style'].fill = 'red';
-      ele['style']['fill-opacity'] = 0;
-      ele['style']['stroke'] = 'red';
-      ele['style']['stroke-opacity'] = 1;
-      ele['style']['stroke-width'] = 2;
+      if( ele["id"]){
+        console.log(ele["id"]);
+      }
+      // ele['style'].fill = 'red';
+      // ele['style']['fill-opacity'] = 0;
+      // ele['style']['stroke'] = 'red';
+      // ele['style']['stroke-opacity'] = 1;
+      // ele['style']['stroke-width'] = 2;
       ele.addEventListener('click',()=> {
       const id = ele["id"];
       if( id !== 'frt_80') {
@@ -56,30 +59,30 @@ export class MaleComponent implements OnInit {
       }
       });
 
-      ele.addEventListener('mouseenter',()=> {
-        ele['style'].fill = '#FF0000';
-        ele['style']['fill-opacity'] = 0.3;
-        ele['style']['stroke'] = '#FF0000';
-        ele['style']['stroke-opacity'] = 1;
-      });
-      ele.addEventListener('mousedown',()=>{
-        ele['style'].fill = '#993366';
-        ele['style']['fill-opacity'] = 0.7;
-        ele['style']['stroke'] = '#993366';
-        ele['style']['stroke-opacity'] = 1;
-      });
-      ele.addEventListener('mouseup',()=>{
-        ele['style'].fill = '#FF0000';
-        ele['style']['fill-opacity'] = 0.3;
-        ele['style']['stroke'] = '#FF0000';
-        ele['style']['stroke-opacity'] = 1;
-      });
-      ele.addEventListener('mouseleave',()=>{
-        ele['style'].fill = 'red';
-        ele['style']['fill-opacity'] = 0;
-        ele['style']['stroke'] = 'red';
-        ele['style']['stroke-opacity'] = 1;
-      })
+      // ele.addEventListener('mouseenter',()=> {
+      //   ele['style'].fill = '#FF0000';
+      //   ele['style']['fill-opacity'] = 0.3;
+      //   ele['style']['stroke'] = '#FF0000';
+      //   ele['style']['stroke-opacity'] = 1;
+      // });
+      // ele.addEventListener('mousedown',()=>{
+      //   ele['style'].fill = '#993366';
+      //   ele['style']['fill-opacity'] = 0.7;
+      //   ele['style']['stroke'] = '#993366';
+      //   ele['style']['stroke-opacity'] = 1;
+      // });
+      // ele.addEventListener('mouseup',()=>{
+      //   ele['style'].fill = '#FF0000';
+      //   ele['style']['fill-opacity'] = 0.3;
+      //   ele['style']['stroke'] = '#FF0000';
+      //   ele['style']['stroke-opacity'] = 1;
+      // });
+      // ele.addEventListener('mouseleave',()=>{
+      //   ele['style'].fill = 'red';
+      //   ele['style']['fill-opacity'] = 0;
+      //   ele['style']['stroke'] = 'red';
+      //   ele['style']['stroke-opacity'] = 1;
+      // })
   })
   }
 

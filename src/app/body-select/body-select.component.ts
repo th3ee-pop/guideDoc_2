@@ -71,7 +71,7 @@ export class BodySelectComponent implements OnInit {
   part= '无';
   title = 'app';
   Symptomes: any;
-  parts = ['其他'];
+  parts = [];
 
   data ;
   constructor(public httpService: HttpService, private router: Router) {
@@ -94,26 +94,26 @@ export class BodySelectComponent implements OnInit {
     this.side = num;
   }
   getParts(event: any) {
-    this.parts = ['其他'];
+    this.parts = [];
     console.log(event);
     let gender = sessionStorage.getItem('Gender');
-    if(typeof(event) !== 'string'){
-      console.log(event);
-      event.forEach((v)=>{
-        this.part = this.dic[gender][v];
-        if( this.parts.indexOf(this.part) == -1) {
-          this.parts.push(this.dic[gender][v]);
-        }
-      });
-      console.log(this.parts);
-      this.showSymptoms(event[0],gender);
-    }else {
+    // if(typeof(event) !== 'string'){
+    //   console.log(event);
+    //   event.forEach((v)=>{
+    //     this.part = this.dic[gender][v];
+    //     if( this.parts.indexOf(this.part) == -1) {
+    //       this.parts.push(this.dic[gender][v]);
+    //     }
+    //   });
+    //   console.log(this.parts);
+    //   this.showSymptoms(event[0],gender);
+    // }else {
       this.part = this.dic[gender][event];
       if( this.parts.indexOf(this.part) == -1) {
         this.parts.push(this.part);
       }
       this.showSymptoms(event,gender);
-    }
+    // }
   }
 
   selectSymptom(symptom: any) {
@@ -173,7 +173,7 @@ export class BodySelectComponent implements OnInit {
     };
 
   clear(){
-    this.parts = ['其他'];
+    this.parts = [];
   }
 
 }
