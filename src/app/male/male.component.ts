@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, ElementRef, Input, Output, EventEmitter, AfterViewInit} from '@angular/core';
 import { parts } from './body-parts';
 
 @Component({
@@ -6,7 +6,7 @@ import { parts } from './body-parts';
   templateUrl: './male.component.html',
   styleUrls: ['./male.component.css']
 })
-export class MaleComponent implements OnInit {
+export class MaleComponent implements OnInit, AfterViewInit {
 
   @Input() sex: number;
   @Input() side: number;
@@ -28,7 +28,9 @@ export class MaleComponent implements OnInit {
   ngOnInit(){
     this.addClick();
   }
-
+ ngAfterViewInit() {
+    initBodyEvent();
+ }
   addClick(){
     let els = this.elementRef.nativeElement.querySelectorAll('path');
     els.forEach((ele)=>{
