@@ -26,30 +26,33 @@ export class MaleComponent implements OnInit {
   constructor( private elementRef: ElementRef ) { }
 
   ngOnInit(){
-    this.addClick();
+    // this.addClick();
+  }
+
+  ngAfterViewInit(){
+    this.initBodyEvent();
   }
 
   addClick(){
     let els = this.elementRef.nativeElement.querySelectorAll('path');
     els.forEach((ele)=>{
       if( ele["id"]){
-        console.log(ele["id"]);
-      }
       // ele['style'].fill = 'red';
       // ele['style']['fill-opacity'] = 0;
       // ele['style']['stroke'] = 'red';
       // ele['style']['stroke-opacity'] = 1;
       // ele['style']['stroke-width'] = 2;
       ele.addEventListener('click',()=> {
+        console.log(ele["id"]);
       const id = ele["id"];
       if( id !== 'frt_80') {
         if (this.side == 0) {
-          let part = this.frt[id.split("_")[1] - 1];
+          let part = this.frt[id.split("_")[1]];
           // console.log(part);
           // this.parts.push(part);
           this.selectedParts.emit(part);
         } else {
-          let part = this.bck[id.split("_")[1] - 1];
+          let part = this.bck[id.split("_")[1]-1];
           // console.log(part);
           // this.parts.push(part);
           this.selectedParts.emit(part);
@@ -83,10 +86,61 @@ export class MaleComponent implements OnInit {
       //   ele['style']['stroke'] = 'red';
       //   ele['style']['stroke-opacity'] = 1;
       // })
+    }
   })
   }
 
   dedupe(array){
     return Array.from(new Set(array));
   }
+
+  initBodyEvent(){
+    let els = this.elementRef.nativeElement.querySelectorAll('path');
+    els.forEach((ele)=>{
+      if( ele["id"] ) {
+        // console.log(ele["id"]);
+        ele.addEventListener('click',()=> {
+          console.log(ele["id"]);
+          const id = ele["id"];
+          if( id !== 'frt_80') {
+          if (this.side == 0) {
+            let part = this.frt[id.split("_")[1]];
+            this.selectedParts.emit(part);
+          } else {
+            let part = this.bck[id.split("_")[1]-1];
+            this.selectedParts.emit(part);
+          }
+        }
+        });
+
+        ele.addEventListener('mouseenter',()=> {
+          // ele["class"] = "enter";
+      //     console.log(ele["id"]);
+      //   ele['style'].fill = '#FF0000';
+      //   ele['style']['fill-opacity'] = 0.3;
+      //   ele['style']['stroke'] = '#FF0000';
+      //   ele['style']['stroke-opacity'] = 1;
+      });
+      // ele.addEventListener('mousedown',()=>{
+      //   ele['style'].fill = '#993366';
+      //   ele['style']['fill-opacity'] = 0.7;
+      //   ele['style']['stroke'] = '#993366';
+      //   ele['style']['stroke-opacity'] = 1;
+      // });
+      // ele.addEventListener('mouseup',()=>{
+      //   ele['style'].fill = '#FF0000';
+      //   ele['style']['fill-opacity'] = 0.3;
+      //   ele['style']['stroke'] = '#FF0000';
+      //   ele['style']['stroke-opacity'] = 1;
+      // });
+      // ele.addEventListener('mouseleave',()=>{
+      //   ele['style'].fill = 'red';
+      //   ele['style']['fill-opacity'] = 0;
+      //   ele['style']['stroke'] = 'red';
+      //   ele['style']['stroke-opacity'] = 1;
+      // })
+      }
+    })
+  }
+
 }

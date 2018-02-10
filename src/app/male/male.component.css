@@ -1,9 +1,44 @@
 .st0{fill:#231815;}
-	.st1{fill:none;stroke:#231815;stroke-width:2;stroke-miterlimit:10;}
-	.st2{fill:none;stroke:#231815;stroke-miterlimit:10;}
+.st1{fill:none;stroke:#231815;stroke-width:2;stroke-miterlimit:10;}
+/* .st2{fill:none;stroke:#231815;stroke-miterlimit:10;}
 	.st3{fill:#79B8FF;}
-	.st4{fill:#FFFFFF;}
-	.st5{fill:#D2D2D2;}
+	.st4{fill:#FFFFFF;} */
 	.st6{fill:#BFBFBF;}
 	.st7{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
 	.st8{fill:#BBBBBB;stroke:#231815;stroke-width:2;stroke-miterlimit:10;}
+
+	.st2{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st3{fill:#BBBBBB;stroke:#231815;stroke-width:2;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#231815;stroke-miterlimit:10;}
+	.st5{display:none;fill:#FFFFFF;}
+
+path:hover{
+	fill: #FF0000;
+	fill-opacity: 0.3;
+	stroke: #FF0000;
+	stroke-opacity: 1
+}
+		.enter{
+		fill: #FF0000;
+		fill-opacity: 0.3;
+		stroke: #FF0000;
+		stroke-opacity: 1
+	}
+	.down{
+		fill: #993366;
+		fill-opacity: 0.7;
+		stroke: #993366;
+		stroke-opacity: 1
+	}
+	.up{
+		fill: #FF0000;
+		fill-opacity: 0.3;
+		stroke: #FF0000;
+		stroke-opacity: 1
+	}
+	.leave{
+		fill: red;
+		fill-opacity: 0;
+		stroke: red;
+		stroke-opacity: 1
+	}
